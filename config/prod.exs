@@ -61,4 +61,14 @@ config :logger, level: :info
 
 # Finally import the config/prod.secret.exs
 # which should be versioned separately.
-import_config "prod.secret.exs"
+
+config :hello_world, HelloWorldWeb.Endpoint,
+  secret_key_base: "wUamlW2Szn36ROXoJcmXOQWSSL7eevY5yRdhVDg0p3Knu0495iKUNXE9jU8TYB9P"
+
+# Configure your database
+config :hello_world, HelloWorld.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  username: "postgres",
+  password: "postgres",
+  database: "hello_world_prod",
+  pool_size: 15
